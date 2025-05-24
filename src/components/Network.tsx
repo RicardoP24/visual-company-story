@@ -158,7 +158,7 @@ export const Network = () => {
           }}>
                 <CardContent className="p-6 h-32 flex items-center justify-center text-center bg-stone-400">
                   <div className="transform group-hover:scale-110 transition-transform duration-300">
-                    <h3 className="text-white font-light tracking-wide text-sm leading-tight group-hover:text-gold transition-colors duration-300">
+                    <h3 className="text-white font-light tracking-wide text-sm leading-tight group-hover:text-white transition-colors duration-300">
                       {category.name}
                     </h3>
                   </div>

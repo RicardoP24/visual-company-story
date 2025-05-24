@@ -174,7 +174,7 @@ export const Testimonials = () => {
       }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.slice(0, 3).map((testimonial, index) => <Card key={testimonial.id} className={`bg-gradient-to-br from-gray-900/50 to-black/50 border-gray-700/30 hover:border-gray-600/50 transition-all duration-500 cursor-pointer group ${index === currentTestimonial ? 'ring-2 ring-gray-600/50' : ''}`} onClick={() => goToTestimonial(index)}>
-                <CardContent className="p-6 bg-stone-500">
+                <CardContent className="p-6 bg-stone-600">
                   <div className="flex items-center mb-4">
                     <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border-2 border-gray-600/50" />
                     <div className="ml-3">

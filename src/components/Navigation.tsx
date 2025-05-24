@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import logo from '../assets/logo.png';
@@ -18,7 +17,7 @@ export const Navigation = () => {
   const navItems = [
     { name: "ABOUT", href: "#about" },
     { name: "SERVICES", href: "#services" },
-    { name: "OUR APPROACH", href: "#approach" },
+    { name: "MARKETS", href: "#markets" },
     { name: "NETWORK", href: "#network" },
     { name: "TEAM", href: "#team" },
     { name: "RESOURCES", href: "#resources" }

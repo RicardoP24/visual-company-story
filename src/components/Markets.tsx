@@ -97,84 +97,100 @@ export const Markets = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Portugal Section */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-8 border border-gold/20 backdrop-blur-sm">
-              <div className="flex items-center gap-4 mb-8">
-                <Globe className="w-10 h-10 text-gold" />
-                <div>
-                  <h3 className="text-3xl font-light text-gold tracking-wider">PORTUGAL</h3>
-                  <div className="w-16 h-0.5 bg-gold/60 mt-2"></div>
+            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl overflow-hidden border border-gold/20 backdrop-blur-sm">
+              {/* Portugal Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1555881400-74d7acaacd8b?auto=format&fit=crop&w=800&q=80"
+                  alt="Portugal Landscape"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-4 left-6 flex items-center gap-3">
+                  <Globe className="w-8 h-8 text-gold" />
+                  <h3 className="text-2xl font-light text-gold tracking-wider">PORTUGAL</h3>
                 </div>
               </div>
 
-              <div className="space-y-8">
-                {portugalLocations.map((section, sectionIndex) => (
-                  <div key={sectionIndex} className="space-y-4">
-                    <h4 className="text-gold text-sm tracking-widest font-medium">
-                      {section.type}
-                    </h4>
-                    
-                    <div className="space-y-4">
-                      {section.locations.map((location, index) => (
-                        <div 
-                          key={index}
-                          className={`p-4 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
-                            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                          }`}
-                          style={{ transitionDelay: `${(sectionIndex * 2 + index) * 150 + 400}ms` }}
-                        >
-                          <div className="flex items-start gap-3">
-                            <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                            <div>
-                              <h5 className="text-white font-medium mb-2 tracking-wide">
-                                {location.name}
-                              </h5>
-                              <p className="text-gray-300 text-sm leading-relaxed">
-                                {location.description}
-                              </p>
+              <div className="p-8">
+                <div className="space-y-8">
+                  {portugalLocations.map((section, sectionIndex) => (
+                    <div key={sectionIndex} className="space-y-4">
+                      <h4 className="text-gold text-sm tracking-widest font-medium">
+                        {section.type}
+                      </h4>
+                      
+                      <div className="space-y-4">
+                        {section.locations.map((location, index) => (
+                          <div 
+                            key={index}
+                            className={`p-4 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
+                              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                            }`}
+                            style={{ transitionDelay: `${(sectionIndex * 2 + index) * 150 + 400}ms` }}
+                          >
+                            <div className="flex items-start gap-3">
+                              <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                              <div>
+                                <h5 className="text-white font-medium mb-2 tracking-wide">
+                                  {location.name}
+                                </h5>
+                                <p className="text-gray-300 text-sm leading-relaxed">
+                                  {location.description}
+                                </p>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Cabo Verde Section */}
           <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl p-8 border border-gold/20 backdrop-blur-sm">
-              <div className="flex items-center gap-4 mb-8">
-                <Globe className="w-10 h-10 text-gold" />
-                <div>
-                  <h3 className="text-3xl font-light text-gold tracking-wider">CABO VERDE</h3>
-                  <div className="w-16 h-0.5 bg-gold/60 mt-2"></div>
+            <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl overflow-hidden border border-gold/20 backdrop-blur-sm">
+              {/* Cabo Verde Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80"
+                  alt="Cabo Verde Beach"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-4 left-6 flex items-center gap-3">
+                  <Globe className="w-8 h-8 text-gold" />
+                  <h3 className="text-2xl font-light text-gold tracking-wider">CABO VERDE</h3>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                {caboVerdeLocations.map((location, index) => (
-                  <div 
-                    key={index}
-                    className={`p-6 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
-                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                    }`}
-                    style={{ transitionDelay: `${index * 150 + 600}ms` }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h5 className="text-white font-medium mb-3 tracking-wide">
-                          {location.name}
-                        </h5>
-                        <p className="text-gray-300 text-sm leading-relaxed">
-                          {location.description}
-                        </p>
+              <div className="p-8">
+                <div className="space-y-6">
+                  {caboVerdeLocations.map((location, index) => (
+                    <div 
+                      key={index}
+                      className={`p-6 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                      }`}
+                      style={{ transitionDelay: `${index * 150 + 600}ms` }}
+                    >
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
+                        <div>
+                          <h5 className="text-white font-medium mb-3 tracking-wide">
+                            {location.name}
+                          </h5>
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            {location.description}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>

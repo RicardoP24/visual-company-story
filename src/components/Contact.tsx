@@ -95,7 +95,7 @@ export const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-2">
-            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gold/20 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-light text-gold mb-8 tracking-wider flex items-center gap-3">
                   <div className="w-8 h-0.5 bg-gold"></div>
@@ -110,7 +110,7 @@ export const Contact = () => {
                       style={{ transitionDelay: `${index * 150}ms` }}
                     >
                       <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gold/5 transition-colors duration-300">
-                        <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-gold/30 group-hover:border-gold/50 transition-colors">
+                        <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-600/50 group-hover:border-gray-500/50 transition-colors">
                           <info.icon className="w-5 h-5 text-gold" />
                         </div>
                         <div>
@@ -124,12 +124,12 @@ export const Contact = () => {
                 </div>
 
                 {/* Quick Action */}
-                <div className="mt-8 p-6 bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg border border-gold/20">
+                <div className="mt-8 p-6 bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg border border-gray-600/50">
                   <h4 className="text-white font-medium mb-2 tracking-wide">Prefer to Talk?</h4>
                   <p className="text-gray-300 text-sm mb-4">Schedule a complimentary 30-minute discovery call</p>
                   <Button 
                     variant="outline" 
-                    className="w-full border-gold/50 text-gold hover:bg-gold hover:text-black transition-all duration-300"
+                    className="w-full border-gray-600/50 text-gold hover:bg-gold hover:text-black transition-all duration-300"
                   >
                     <Calendar className="w-4 h-4 mr-2" />
                     BOOK NOW
@@ -141,7 +141,7 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gold/20 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
               <CardContent className="p-8">
                 <h3 className="text-2xl font-light text-gold mb-8 tracking-wider flex items-center gap-3">
                   START THE CONVERSATION
@@ -154,7 +154,7 @@ export const Contact = () => {
                     <div className="relative group">
                       <label className="block text-white text-sm mb-2 tracking-wide">First Name</label>
                       <Input 
-                        className={`bg-black/50 border-gray-600 text-white focus:border-gold transition-all duration-300 ${
+                        className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
                           focusedField === 'firstName' ? 'ring-2 ring-gold/20 border-gold' : ''
                         }`}
                         onFocus={() => setFocusedField('firstName')}
@@ -167,7 +167,7 @@ export const Contact = () => {
                     <div className="relative group">
                       <label className="block text-white text-sm mb-2 tracking-wide">Last Name</label>
                       <Input 
-                        className={`bg-black/50 border-gray-600 text-white focus:border-gold transition-all duration-300 ${
+                        className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
                           focusedField === 'lastName' ? 'ring-2 ring-gold/20 border-gold' : ''
                         }`}
                         onFocus={() => setFocusedField('lastName')}
@@ -184,7 +184,7 @@ export const Contact = () => {
                     <label className="block text-white text-sm mb-2 tracking-wide">Email Address</label>
                     <Input 
                       type="email" 
-                      className={`bg-black/50 border-gray-600 text-white focus:border-gold transition-all duration-300 ${
+                      className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
                         focusedField === 'email' ? 'ring-2 ring-gold/20 border-gold' : ''
                       }`}
                       onFocus={() => setFocusedField('email')}
@@ -199,7 +199,7 @@ export const Contact = () => {
                   <div className="relative group">
                     <label className="block text-white text-sm mb-2 tracking-wide">Service of Interest</label>
                     <select 
-                      className={`w-full p-3 bg-black/50 border border-gray-600 text-white focus:border-gold rounded-md transition-all duration-300 ${
+                      className={`w-full p-3 bg-black/50 border border-gray-700 text-white focus:border-gold rounded-md transition-all duration-300 ${
                         focusedField === 'service' ? 'ring-2 ring-gold/20 border-gold' : ''
                       }`}
                       onFocus={() => setFocusedField('service')}
@@ -218,7 +218,7 @@ export const Contact = () => {
                   <div className="relative group">
                     <label className="block text-white text-sm mb-2 tracking-wide">Tell us about your goals</label>
                     <Textarea 
-                      className={`bg-black/50 border-gray-600 text-white focus:border-gold min-h-32 transition-all duration-300 ${
+                      className={`bg-black/50 border-gray-700 text-white focus:border-gold min-h-32 transition-all duration-300 ${
                         focusedField === 'message' ? 'ring-2 ring-gold/20 border-gold' : ''
                       }`}
                       placeholder="Share your investment vision, timeline, and any specific questions..."

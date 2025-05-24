@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Award, Globe, Users, TrendingUp } from "lucide-react";
+import { Award, Globe, Users, TrendingUp, Target, Eye, Heart } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export const About = () => {
@@ -44,11 +44,34 @@ export const About = () => {
     return () => observer.disconnect();
   }, []);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('resources');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const stats = [
     { icon: TrendingUp, label: "Properties Managed", value: countUp.projects, suffix: "+" },
     { icon: Users, label: "Happy Clients", value: countUp.clients, suffix: "+" },
     { icon: Globe, label: "Years Experience", value: countUp.years, suffix: "" },
     { icon: Award, label: "Satisfaction Rate", value: countUp.satisfaction, suffix: "%" }
+  ];
+
+  const values = [
+    {
+      icon: Heart,
+      title: "Integrity",
+      description: "Do what's right, even when no one is watching."
+    },
+    {
+      icon: Users,
+      title: "Unity",
+      description: "Success is built through collaboration, shared purpose, and mutual respect."
+    },
+    {
+      icon: Globe,
+      title: "Empowerment",
+      description: "Striving to leave a meaningful mark on our communities and future generations."
+    }
   ];
 
   return (
@@ -60,99 +83,105 @@ export const About = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Content Side */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-            <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-12 h-0.5 bg-gold"></div>
-              <span className="text-gold text-sm tracking-widest font-light">OUR STORY</span>
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-8 tracking-wider leading-tight">
-              WHERE <span className="text-gold">VISION</span> MEETS
-              <br />
-              <span className="text-gold">EXECUTION</span>
-            </h2>
-            
-            <div className="space-y-6 mb-8">
-              <p className="text-gray-300 text-lg leading-relaxed font-light">
-                At Kings in Company, we don't just facilitate transactions — we craft investment journeys. 
-                Our approach transcends traditional real estate services, creating bespoke experiences that 
-                honor both your aspirations and the unique character of each property.
-              </p>
-              
-              <p className="text-gray-300 text-lg leading-relaxed font-light">
-                From the sun-drenched coastlines of Portugal to the pristine archipelago of Cabo Verde, 
-                we've cultivated relationships that unlock opportunities others simply cannot access. 
-                Every client becomes part of our extended family of successful investors.
-              </p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className={`text-center p-4 bg-gradient-to-br from-gray-900/50 to-black/50 rounded-lg border border-gold/20 transition-all duration-700 hover:border-gold/40 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-                  }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <stat.icon className="w-8 h-8 text-gold mx-auto mb-3" />
-                  <div className="text-2xl font-light text-white mb-1">
-                    {stat.value}{stat.suffix}
-                  </div>
-                  <div className="text-xs text-gray-400 tracking-wider uppercase">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Button className="bg-gold hover:bg-gold-light text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105">
-              DISCOVER OUR PROCESS
-            </Button>
+        {/* Header */}
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="inline-flex items-center gap-2 mb-6">
+            <div className="w-12 h-0.5 bg-gold"></div>
+            <span className="text-gold text-sm tracking-widest font-light">WHO WE ARE</span>
+            <div className="w-12 h-0.5 bg-gold"></div>
           </div>
 
-          {/* Visual Side */}
-          <div className={`relative transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-            <div className="relative">
-              {/* Main Image */}
-              <div className="aspect-[4/5] bg-gradient-to-br from-gray-900 to-black rounded-2xl overflow-hidden relative group">
-                <img 
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80"
-                  alt="Luxury architecture"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                
-                {/* Floating Quote */}
-                <div className="absolute bottom-8 left-8 right-8">
-                  <div className="bg-black/80 backdrop-blur-sm p-6 rounded-lg border border-gold/20">
-                    <p className="text-gold text-sm italic leading-relaxed">
-                      "Excellence is not a destination, but a journey of continuous refinement in everything we do."
-                    </p>
-                    <div className="mt-3 text-xs text-gray-400 tracking-wider">
-                      — KINGS IN COMPANY PHILOSOPHY
+          <h2 className="text-4xl md:text-5xl font-light text-white mb-8 tracking-wider leading-tight">
+            OUR <span className="text-gold">FOUNDATION</span>
+          </h2>
+        </div>
+
+        {/* Mission, Vision, Values Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+          {/* Left Column - Mission & Vision */}
+          <div className={`space-y-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+            {/* Mission */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <Target className="w-8 h-8 text-gold" />
+                <h3 className="text-2xl font-light text-gold tracking-wider">MISSION</h3>
+              </div>
+              <p className="text-gray-300 text-lg leading-relaxed font-light">
+                We are committed to being your reliable allies in the real estate market, uncovering lucrative investments, 
+                building consistent value, and assuring long-term returns.
+              </p>
+            </div>
+
+            {/* Vision */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <Eye className="w-8 h-8 text-gold" />
+                <h3 className="text-2xl font-light text-gold tracking-wider">VISION</h3>
+              </div>
+              <p className="text-gray-300 text-lg leading-relaxed font-light">
+                To grow from a local enterprise to a global force, setting the benchmark in the real estate investment 
+                industry in Portugal and West Africa.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column - Values */}
+          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <Heart className="w-8 h-8 text-gold" />
+                <h3 className="text-2xl font-light text-gold tracking-wider">VALUES</h3>
+              </div>
+              
+              <div className="space-y-6">
+                {values.map((value, index) => (
+                  <div 
+                    key={index}
+                    className={`p-6 bg-gradient-to-br from-gray-900/50 to-black/50 rounded-lg border border-gold/20 transition-all duration-700 hover:border-gold/40 ${
+                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                    }`}
+                    style={{ transitionDelay: `${index * 150 + 400}ms` }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <value.icon className="w-6 h-6 text-gold mt-1 flex-shrink-0" />
+                      <div>
+                        <h4 className="text-white font-medium mb-2 tracking-wider">{value.title}</h4>
+                        <p className="text-gray-300 text-sm leading-relaxed">{value.description}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              {/* Geometric Overlays */}
-              <div className="absolute -top-6 -right-6 w-24 h-24 border-2 border-gold/30 rotate-45 animate-float"></div>
-              <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-gold/20 rotate-12 animate-float" style={{ animationDelay: '2s' }}></div>
-              
-              {/* Side Image */}
-              <div className="absolute top-1/4 -right-8 w-32 h-40 bg-gradient-to-br from-gray-800 to-black rounded-lg overflow-hidden border border-gold/20">
-                <img 
-                  src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?auto=format&fit=crop&w=400&q=80"
-                  alt="Modern building detail"
-                  className="w-full h-full object-cover"
-                />
+                ))}
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Stats Grid */}
+        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
+          {stats.map((stat, index) => (
+            <div 
+              key={index} 
+              className="text-center p-6 bg-gradient-to-br from-gray-900/50 to-black/50 rounded-lg border border-gold/20 transition-all duration-700 hover:border-gold/40"
+            >
+              <stat.icon className="w-8 h-8 text-gold mx-auto mb-3" />
+              <div className="text-2xl font-light text-white mb-1">
+                {stat.value}{stat.suffix}
+              </div>
+              <div className="text-xs text-gray-400 tracking-wider uppercase">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Button */}
+        <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
+          <Button 
+            className="bg-gold hover:bg-gold-light text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105"
+            onClick={scrollToContact}
+          >
+            BEGIN YOUR JOURNEY
+          </Button>
         </div>
       </div>
     </section>

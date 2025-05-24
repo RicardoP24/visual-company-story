@@ -13,7 +13,10 @@ export const Markets = () => {
           setIsVisible(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.1, // Reduced threshold for better mobile triggering
+        rootMargin: '50px 0px' // Added margin for earlier triggering
+      }
     );
 
     if (sectionRef.current) {
@@ -81,7 +84,7 @@ export const Markets = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`text-center mb-16 transition-all duration-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="w-12 h-0.5 bg-gold"></div>
             <span className="text-gold text-sm tracking-widest font-light">OUR MARKETS</span>
@@ -96,7 +99,7 @@ export const Markets = () => {
         {/* Markets Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Portugal Section */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
+          <div className={`transition-all duration-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`} style={{ transitionDelay: '200ms' }}>
             <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl overflow-hidden border border-gold/20 backdrop-blur-sm">
               {/* Portugal Image */}
               <div className="relative h-64 overflow-hidden">
@@ -124,10 +127,10 @@ export const Markets = () => {
                         {section.locations.map((location, index) => (
                           <div 
                             key={index}
-                            className={`p-4 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
-                              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                            className={`p-4 bg-black/30 rounded-lg border border-gold/10 transition-all duration-600 ease-out hover:border-gold/30 ${
+                              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                             }`}
-                            style={{ transitionDelay: `${(sectionIndex * 2 + index) * 150 + 400}ms` }}
+                            style={{ transitionDelay: `${400 + (sectionIndex * 2 + index) * 100}ms` }}
                           >
                             <div className="flex items-start gap-3">
                               <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
@@ -151,7 +154,7 @@ export const Markets = () => {
           </div>
 
           {/* Cabo Verde Section */}
-          <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
+          <div className={`transition-all duration-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'}`} style={{ transitionDelay: '400ms' }}>
             <div className="bg-gradient-to-br from-gray-900/80 to-black/60 rounded-2xl overflow-hidden border border-gold/20 backdrop-blur-sm">
               {/* Cabo Verde Image */}
               <div className="relative h-64 overflow-hidden">
@@ -172,10 +175,10 @@ export const Markets = () => {
                   {caboVerdeLocations.map((location, index) => (
                     <div 
                       key={index}
-                      className={`p-6 bg-black/30 rounded-lg border border-gold/10 transition-all duration-700 hover:border-gold/30 ${
-                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                      className={`p-6 bg-black/30 rounded-lg border border-gold/10 transition-all duration-600 ease-out hover:border-gold/30 ${
+                        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                       }`}
-                      style={{ transitionDelay: `${index * 150 + 600}ms` }}
+                      style={{ transitionDelay: `${600 + index * 100}ms` }}
                     >
                       <div className="flex items-start gap-3">
                         <MapPin className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
@@ -197,7 +200,7 @@ export const Markets = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className={`mt-16 text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1000ms' }}>
+        <div className={`mt-16 text-center transition-all duration-800 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '800ms' }}>
           <div className="inline-flex items-center gap-4 text-gold/60">
             <div className="w-20 h-0.5 bg-gold/30"></div>
             <span className="text-xs tracking-widest">EXPANDING HORIZONS</span>

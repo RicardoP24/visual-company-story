@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -32,17 +31,19 @@ export const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-4 group cursor-pointer">
-            {/* Company Logo */}
-            <div className="w-12 h-12 relative transition-transform duration-300 group-hover:scale-110">
-              <img 
-                src="/lovable-uploads/46fbbc88-bd63-4b6c-8a43-4ae4d2bb0a6b.png" 
-                alt="Kings in Company Logo" 
-                className="w-full h-full object-contain filter brightness-110 group-hover:brightness-125 transition-all duration-300"
-              />
+          <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="w-10 h-10 relative transition-transform duration-300 group-hover:scale-110">
+              <div className="absolute inset-0 border-2 border-gold rounded-full group-hover:border-gold-light transition-colors">
+                <div className="absolute inset-2 border border-gold rounded-full group-hover:border-gold-light transition-colors">
+                  <div className="absolute inset-1 bg-gradient-to-br from-gold to-gold-light rounded-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
+                </div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-6 h-6 border border-gold transform rotate-45 group-hover:border-gold-light transition-all duration-300 group-hover:rotate-[50deg]"></div>
+              </div>
             </div>
             <div>
-              <div className="text-gold font-light text-lg tracking-wider group-hover:text-gold-light transition-colors" style={{ fontFamily: "'Dancing Script', cursive" }}>
+              <div className="text-gold font-light text-lg tracking-wider group-hover:text-gold-light transition-colors">
                 Kings in Company
               </div>
               <div className="text-xs text-gray-400 tracking-widest">

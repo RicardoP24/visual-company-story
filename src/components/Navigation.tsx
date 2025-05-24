@@ -18,6 +18,9 @@ export const Navigation = () => {
   const navItems = [
     { name: "ABOUT", href: "#about" },
     { name: "SERVICES", href: "#services" },
+    { name: "NETWORK", href: "#network" },
+    { name: "FEATURES", href: "#features" },
+    { name: "ACHIEVEMENTS", href: "#achievements" },
     { name: "MARKETS", href: "#markets" },
     { name: "STATEMENT", href: "#statement" },
     { name: "TEAM", href: "#team" },

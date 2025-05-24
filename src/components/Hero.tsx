@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin } from "lucide-react";
@@ -11,8 +12,14 @@ export const Hero = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('resources');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    {/* Layered Background with Parallax */}
+    {/* Background Animation */}
     <div className="absolute inset-0">
       <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black" style={{
         transform: `translateY(${scrollY * 0.5}px)`
@@ -73,15 +80,21 @@ export const Hero = () => {
         </p>
       </div>
 
-      {/* Dynamic Property Search Overlay */}
-
-
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
-        <Button size="lg" className="bg-gold hover:bg-gold-light text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+        <Button 
+          size="lg" 
+          className="bg-gold hover:bg-gold-light text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl"
+          onClick={scrollToContact}
+        >
           EXPLORE SERVICES
         </Button>
-        <Button variant="outline" size="lg" className="border-gold text-gold hover:bg-gold hover:text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105">
+        <Button 
+          variant="outline" 
+          size="lg" 
+          className="border-gold text-gold hover:bg-gold hover:text-black font-medium tracking-wider px-8 py-3 transition-all duration-300 transform hover:scale-105"
+          onClick={scrollToContact}
+        >
           LEARN MORE
         </Button>
       </div>

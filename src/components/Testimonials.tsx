@@ -1,91 +1,119 @@
 import { useState, useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote, ChevronLeft, ChevronRight, Play } from "lucide-react";
+
 export const Testimonials = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const sectionRef = useRef<HTMLElement>(null);
-  const testimonials = [{
-    id: 1,
-    name: "Sofia Martins",
-    role: "Property Investor",
-    location: "Lisbon, Portugal",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b332e234?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "Kings in Company transformed my investment strategy completely. Their insights into the Portuguese market helped me secure three properties that have already appreciated 25%. The Academy program was invaluable.",
-    highlight: "25% appreciation in 18 months",
-    videoTestimonial: true
-  }, {
-    id: 2,
-    name: "Marcus Thompson",
-    role: "First-time Buyer",
-    location: "Cabo Verde",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "From complete beginner to confident property owner in 6 months. The consultation process was thorough, and they guided me through every step. I now own a beautiful villa in Sal Island.",
-    highlight: "Dream villa acquired in 6 months",
-    videoTestimonial: false
-  }, {
-    id: 3,
-    name: "Elena Rodriguez",
-    role: "Real Estate Developer",
-    location: "Porto, Portugal",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "The property ownership tour opened my eyes to opportunities I never knew existed. Their network and expertise in emerging markets gave me the confidence to expand my portfolio internationally.",
-    highlight: "Expanded to 3 countries",
-    videoTestimonial: true
-  }, {
-    id: 4,
-    name: "João Silva",
-    role: "Retired Investor",
-    location: "Algarve, Portugal",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "After 30 years in traditional investments, Kings in Company showed me the power of strategic real estate. Their management service means I can enjoy retirement while my properties generate passive income.",
-    highlight: "Passive income achieved",
-    videoTestimonial: false
-  }];
+
+  const testimonials = [
+    {
+      id: 1,
+      name: "Osmar da Graça",
+      role: "Software Engineer",
+      location: "Portugal",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
+      text: "After following Ismael's sale of my parents' house, I decided to ask for advice on possible investments. He was tireless in the search for the best solutions for me and my family. Helped me at every stage of the process, from buying to remodeling and then selling. In less than 6 months I managed to quadruple the invested capital! He walked me through some of the biggest decisions I have had to make — for that I am forever grateful. We will certainly do more business together.",
+      highlight: "Quadrupled capital in 6 months",
+      videoTestimonial: false
+    },
+    {
+      id: 2,
+      name: "Trevor Lyons",
+      role: "International Investor",
+      location: "USA",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
+      text: "Knowledgeable about all things Lisbon and surrounding areas. He worked hard to make sure I chose the right investment property. I highly recommend him.",
+      highlight: "Perfect investment property",
+      videoTestimonial: false
+    },
+    {
+      id: 3,
+      name: "Neville Gayle",
+      role: "CEO, Gayle Financial",
+      location: "USA",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
+      text: "My family and I moved to Lisbon in August 2022 and Ishmael was a major part of our move. We actually 'found' him by mistake after a poor experience with another agency — and it turned out to be the best thing. Ishmael went above and beyond expectations: securing an apartment, guiding us through public services, applying for our NIFs, even picking us up at the airport. He did countless video calls while we were still in the US. His service was professional, personal, and ongoing even after we settled. We highly recommend him. Fantastic human being! Bonus: He speaks several languages — communication was effortless.",
+      highlight: "Complete relocation support",
+      videoTestimonial: true
+    },
+    {
+      id: 4,
+      name: "Sofia Martins",
+      role: "Property Investor",
+      location: "Lisbon, Portugal",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b332e234?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
+      text: "Kings in Company transformed my investment strategy completely. Their insights into the Portuguese market helped me secure three properties that have already appreciated 25%. The Academy program was invaluable.",
+      highlight: "25% appreciation in 18 months",
+      videoTestimonial: true
+    },
+    {
+      id: 5,
+      name: "Marcus Thompson",
+      role: "First-time Buyer",
+      location: "Cabo Verde",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      rating: 5,
+      text: "From complete beginner to confident property owner in 6 months. The consultation process was thorough, and they guided me through every step. I now own a beautiful villa in Sal Island.",
+      highlight: "Dream villa acquired in 6 months",
+      videoTestimonial: false
+    }
+  ];
+
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        setIsVisible(true);
-      }
-    }, {
-      threshold: 0.2
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
     return () => observer.disconnect();
   }, []);
+
   useEffect(() => {
     if (!isAutoPlaying) return;
+    
     const interval = setInterval(() => {
       setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
     }, 5000);
+
     return () => clearInterval(interval);
   }, [isAutoPlaying, testimonials.length]);
+
   const nextTestimonial = () => {
     setIsAutoPlaying(false);
     setCurrentTestimonial(prev => (prev + 1) % testimonials.length);
   };
+
   const prevTestimonial = () => {
     setIsAutoPlaying(false);
     setCurrentTestimonial(prev => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
   const goToTestimonial = (index: number) => {
     setIsAutoPlaying(false);
     setCurrentTestimonial(index);
   };
-  return <section ref={sectionRef} className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+
+  return (
+    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse" style={{
-        animationDelay: '3s'
-      }}></div>
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -119,12 +147,18 @@ export const Testimonials = () => {
                   
                   <div className="relative z-10">
                     <div className="w-32 h-32 mx-auto mb-6 relative">
-                      <img src={testimonials[currentTestimonial].image} alt={testimonials[currentTestimonial].name} className="w-full h-full rounded-full object-cover border-4 border-gray-600/50 shadow-2xl" />
-                      {testimonials[currentTestimonial].videoTestimonial && <div className="absolute inset-0 flex items-center justify-center">
+                      <img
+                        src={testimonials[currentTestimonial].image}
+                        alt={testimonials[currentTestimonial].name}
+                        className="w-full h-full rounded-full object-cover border-4 border-gray-600/50 shadow-2xl"
+                      />
+                      {testimonials[currentTestimonial].videoTestimonial && (
+                        <div className="absolute inset-0 flex items-center justify-center">
                           <div className="w-12 h-12 bg-gold/90 rounded-full flex items-center justify-center cursor-pointer hover:bg-gold transition-colors">
                             <Play className="w-5 h-5 text-black ml-0.5" />
                           </div>
-                        </div>}
+                        </div>
+                      )}
                     </div>
                     
                     <div className="text-center">
@@ -134,7 +168,9 @@ export const Testimonials = () => {
                       
                       {/* Rating */}
                       <div className="flex justify-center mb-4">
-                        {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-gold fill-current" />)}
+                        {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-gold fill-current" />
+                        ))}
                       </div>
                       
                       {/* Highlight Badge */}
@@ -163,30 +199,55 @@ export const Testimonials = () => {
 
           {/* Navigation Controls */}
           <div className="flex items-center justify-between mt-8">
-            <button onClick={prevTestimonial} className="w-12 h-12 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <button
+              onClick={prevTestimonial}
+              className="w-12 h-12 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+            >
               <ChevronLeft className="w-5 h-5 text-gold" />
             </button>
 
             {/* Dots Indicator */}
             <div className="flex space-x-3">
-              {testimonials.map((_, index) => <button key={index} onClick={() => goToTestimonial(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentTestimonial ? 'bg-gold scale-125' : 'bg-gray-600 hover:bg-gray-500'}`} />)}
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToTestimonial(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentTestimonial
+                      ? 'bg-gold scale-125'
+                      : 'bg-gray-600 hover:bg-gray-500'
+                  }`}
+                />
+              ))}
             </div>
 
-            <button onClick={nextTestimonial} className="w-12 h-12 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+            <button
+              onClick={nextTestimonial}
+              className="w-12 h-12 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-600/50 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+            >
               <ChevronRight className="w-5 h-5 text-gold" />
             </button>
           </div>
         </div>
 
         {/* Additional Testimonials Grid */}
-        <div className={`mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
-        transitionDelay: '500ms'
-      }}>
+        <div className={`mt-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '500ms' }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.slice(0, 3).map((testimonial, index) => <Card key={testimonial.id} className={`bg-gradient-to-br from-gray-900/50 to-black/50 border-gray-700/30 hover:border-gray-600/50 transition-all duration-500 cursor-pointer group ${index === currentTestimonial ? 'ring-2 ring-gray-600/50' : ''}`} onClick={() => goToTestimonial(index)}>
-                <CardContent className="p-6 bg-stone-500">
+            {testimonials.slice(0, 3).map((testimonial, index) => (
+              <Card
+                key={testimonial.id}
+                className={`bg-gradient-to-br from-gray-900/50 to-black/50 border-gray-700/30 hover:border-gray-600/50 transition-all duration-500 cursor-pointer group ${
+                  index === currentTestimonial ? 'ring-2 ring-gray-600/50' : ''
+                }`}
+                onClick={() => goToTestimonial(index)}
+              >
+                <CardContent className="p-6">
                   <div className="flex items-center mb-4">
-                    <img src={testimonial.image} alt={testimonial.name} className="w-12 h-12 rounded-full object-cover border-2 border-gray-600/50" />
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover border-2 border-gray-600/50"
+                    />
                     <div className="ml-3">
                       <h4 className="text-white text-sm font-medium">{testimonial.name}</h4>
                       <p className="text-gold text-xs">{testimonial.role}</p>
@@ -200,14 +261,18 @@ export const Testimonials = () => {
                   
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex">
-                      {[...Array(testimonial.rating)].map((_, i) => <Star key={i} className="w-3 h-3 text-gold fill-current" />)}
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="w-3 h-3 text-gold fill-current" />
+                      ))}
                     </div>
                     <span className="text-gold text-xs">{testimonial.highlight}</span>
                   </div>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };

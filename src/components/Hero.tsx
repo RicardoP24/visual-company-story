@@ -63,38 +63,14 @@ export const Hero = () => {
 
       {/* Main Content */}
       <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-        {/* Animated Logo */}
+        {/* Company Logo */}
         <div className="flex justify-center mb-8">
           <div className="w-24 h-24 relative animate-glow">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <g stroke="#A08F66" strokeWidth="1.5" fill="none">
-                {/* Geometric network pattern */}
-                <path d="M20,30 L50,15 L80,30 L70,60 L30,60 Z" />
-                <path d="M20,30 L30,60" />
-                <path d="M50,15 L30,60" />
-                <path d="M50,15 L70,60" />
-                <path d="M80,30 L70,60" />
-                <path d="M80,30 L30,60" />
-                
-                {/* Inner network */}
-                <path d="M35,40 L50,25 L65,40 L60,55 L40,55 Z" />
-                <path d="M35,40 L65,40" />
-                <path d="M50,25 L60,55" />
-                <path d="M50,25 L40,55" />
-                
-                {/* Connection nodes */}
-                <circle cx="20" cy="30" r="2" fill="#A08F66" />
-                <circle cx="50" cy="15" r="2" fill="#A08F66" />
-                <circle cx="80" cy="30" r="2" fill="#A08F66" />
-                <circle cx="70" cy="60" r="2" fill="#A08F66" />
-                <circle cx="30" cy="60" r="2" fill="#A08F66" />
-                <circle cx="35" cy="40" r="1.5" fill="#A08F66" />
-                <circle cx="65" cy="40" r="1.5" fill="#A08F66" />
-                <circle cx="50" cy="25" r="1.5" fill="#A08F66" />
-                <circle cx="60" cy="55" r="1.5" fill="#A08F66" />
-                <circle cx="40" cy="55" r="1.5" fill="#A08F66" />
-              </g>
-            </svg>
+            <img 
+              src="/lovable-uploads/46fbbc88-bd63-4b6c-8a43-4ae4d2bb0a6b.png" 
+              alt="Kings in Company Logo" 
+              className="w-full h-full object-contain filter brightness-110"
+            />
           </div>
         </div>
 

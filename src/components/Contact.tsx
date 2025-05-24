@@ -123,18 +123,7 @@ export const Contact = () => {
                   ))}
                 </div>
 
-                {/* Quick Action */}
-                <div className="mt-8 p-6 bg-gradient-to-r from-gold/10 to-gold/5 rounded-lg border border-gray-600/50">
-                  <h4 className="text-white font-medium mb-2 tracking-wide">Prefer to Talk?</h4>
-                  <p className="text-gray-300 text-sm mb-4">Schedule a complimentary 30-minute discovery call</p>
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-gray-600/50 text-gold hover:bg-gold hover:text-black transition-all duration-300"
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    BOOK NOW
-                  </Button>
-                </div>
+     
               </CardContent>
             </Card>
           </div>

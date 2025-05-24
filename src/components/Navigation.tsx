@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logo from '../assets/logo.png'; // Adjust path as needed
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,16 +33,11 @@ export const Navigation = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-3 group cursor-pointer">
-            <div className="w-10 h-10 relative transition-transform duration-300 group-hover:scale-110">
-              <div className="absolute inset-0 border-2 border-gold rounded-full group-hover:border-gold-light transition-colors">
-                <div className="absolute inset-2 border border-gold rounded-full group-hover:border-gold-light transition-colors">
-                  <div className="absolute inset-1 bg-gradient-to-br from-gold to-gold-light rounded-full opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-6 h-6 border border-gold transform rotate-45 group-hover:border-gold-light transition-all duration-300 group-hover:rotate-[50deg]"></div>
-              </div>
-            </div>
+                    <img
+            src={logo}
+            alt="Logo"
+            className="w-12 h-12 object-contain drop-shadow-[0_0_10px_rgba(160,143,42,0.8)]"
+          />
             <div>
               <div className="text-gold font-light text-lg tracking-wider group-hover:text-gold-light transition-colors">
                 Kings in Company

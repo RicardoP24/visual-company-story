@@ -47,17 +47,12 @@ export const Contact = () => {
       value: "Portugal & Cabo Verde",
       description: "Premium locations, premium service"
     },
-    {
-      icon: Calendar,
-      label: "Book a Meeting",
-      value: "Schedule directly",
-      description: "30-minute discovery calls available"
-    }
+ 
   ];
 
   const serviceOptions = [
     "Property Ownership Academy",
-    "Property Ownership Consultancy", 
+    "Property Ownership Consultancy",
     "Property Ownership Tour",
     "Property Management",
     "General Inquiry"
@@ -79,34 +74,38 @@ export const Contact = () => {
             <span className="text-gold text-sm tracking-widest font-light">LET'S CONNECT</span>
             <Sparkles className="w-6 h-6 text-gold animate-pulse" />
           </div>
-          
+
           <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-wider">
             BEGIN YOUR <span className="text-gold">JOURNEY</span>
           </h2>
-          
+
           <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
-          
+
           <p className="text-gray-300 text-xl max-w-4xl mx-auto font-light leading-relaxed">
-            Every extraordinary investment story begins with a conversation. 
+            Every extraordinary investment story begins with a conversation.
             <br />Let's start writing yours.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        <div className="flex justify-center  w-full px-4">
           {/* Contact Information */}
-          <div className="lg:col-span-2">
-            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-light text-gold mb-8 tracking-wider flex items-center gap-3">
-                  <div className="w-8 h-0.5 bg-gold"></div>
+          <div className="w-full max-w-3xl ">
+            <Card
+              className={`bg-gradient-to-br from-gray-900/80 to-black/80 border border-gray-700/50 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+                }`}
+            >
+              <CardContent className="p-8 ">
+                <h3 className="text-2xl font-light text-gold mb-8 tracking-wider flex items-center gap-3 justify-center">
+                  <div className="w-8 h-0.5 bg-gold" />
                   CONNECT WITH US
                 </h3>
-                
-                <div className="space-y-8">
+
+                <div className="space-y-8 ">
                   {contactInfo.map((info, index) => (
-                    <div 
+                    <div
                       key={index}
-                      className={`group transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                      className={`group transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                        }`}
                       style={{ transitionDelay: `${index * 150}ms` }}
                     >
                       <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gold/5 transition-colors duration-300">
@@ -122,112 +121,11 @@ export const Contact = () => {
                     </div>
                   ))}
                 </div>
-
-     
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <Card className={`bg-gradient-to-br from-gray-900/80 to-black/80 border-gray-700/50 backdrop-blur-sm transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-light text-gold mb-8 tracking-wider flex items-center gap-3">
-                  START THE CONVERSATION
-                  <div className="w-8 h-0.5 bg-gold"></div>
-                </h3>
-                
-                <form className="space-y-6">
-                  {/* Name Fields */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="relative group">
-                      <label className="block text-white text-sm mb-2 tracking-wide">First Name</label>
-                      <Input 
-                        className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
-                          focusedField === 'firstName' ? 'ring-2 ring-gold/20 border-gold' : ''
-                        }`}
-                        onFocus={() => setFocusedField('firstName')}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                      <div className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                        focusedField === 'firstName' ? 'w-full' : 'w-0'
-                      }`}></div>
-                    </div>
-                    <div className="relative group">
-                      <label className="block text-white text-sm mb-2 tracking-wide">Last Name</label>
-                      <Input 
-                        className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
-                          focusedField === 'lastName' ? 'ring-2 ring-gold/20 border-gold' : ''
-                        }`}
-                        onFocus={() => setFocusedField('lastName')}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                      <div className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                        focusedField === 'lastName' ? 'w-full' : 'w-0'
-                      }`}></div>
-                    </div>
-                  </div>
-                  
-                  {/* Email */}
-                  <div className="relative group">
-                    <label className="block text-white text-sm mb-2 tracking-wide">Email Address</label>
-                    <Input 
-                      type="email" 
-                      className={`bg-black/50 border-gray-700 text-white focus:border-gold transition-all duration-300 ${
-                        focusedField === 'email' ? 'ring-2 ring-gold/20 border-gold' : ''
-                      }`}
-                      onFocus={() => setFocusedField('email')}
-                      onBlur={() => setFocusedField(null)}
-                    />
-                    <div className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                      focusedField === 'email' ? 'w-full' : 'w-0'
-                    }`}></div>
-                  </div>
-                  
-                  {/* Service Interest */}
-                  <div className="relative group">
-                    <label className="block text-white text-sm mb-2 tracking-wide">Service of Interest</label>
-                    <select 
-                      className={`w-full p-3 bg-black/50 border border-gray-700 text-white focus:border-gold rounded-md transition-all duration-300 ${
-                        focusedField === 'service' ? 'ring-2 ring-gold/20 border-gold' : ''
-                      }`}
-                      onFocus={() => setFocusedField('service')}
-                      onBlur={() => setFocusedField(null)}
-                    >
-                      {serviceOptions.map((option, index) => (
-                        <option key={index} value={option}>{option}</option>
-                      ))}
-                    </select>
-                    <div className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                      focusedField === 'service' ? 'w-full' : 'w-0'
-                    }`}></div>
-                  </div>
-                  
-                  {/* Message */}
-                  <div className="relative group">
-                    <label className="block text-white text-sm mb-2 tracking-wide">Tell us about your goals</label>
-                    <Textarea 
-                      className={`bg-black/50 border-gray-700 text-white focus:border-gold min-h-32 transition-all duration-300 ${
-                        focusedField === 'message' ? 'ring-2 ring-gold/20 border-gold' : ''
-                      }`}
-                      placeholder="Share your investment vision, timeline, and any specific questions..."
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={() => setFocusedField(null)}
-                    />
-                    <div className={`absolute bottom-0 left-0 h-0.5 bg-gold transition-all duration-300 ${
-                      focusedField === 'message' ? 'w-full' : 'w-0'
-                    }`}></div>
-                  </div>
-                  
-                  <Button className="w-full bg-gold hover:bg-gold-light text-black font-medium tracking-wider py-4 transition-all duration-300 transform hover:scale-105 group">
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
-                    SEND MESSAGE
-                  </Button>
-                </form>
               </CardContent>
             </Card>
           </div>
         </div>
+
       </div>
     </section>
   );

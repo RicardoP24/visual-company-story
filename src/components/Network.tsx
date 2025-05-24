@@ -96,6 +96,11 @@ export const Network = () => {
     value: "100%",
     label: "Vetted Professionals"
   }];
+
+    const scrollToContact = () => {
+    const contactSection = document.getElementById('resources');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
   return <section ref={sectionRef} id="network" className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
       {/* Background Animation */}
       <div className="absolute inset-0">
@@ -174,7 +179,7 @@ export const Network = () => {
             <p className="text-gray-300 mb-6 max-w-2xl">
               Become part of our exclusive ecosystem of vetted professionals and expand your business opportunities.
             </p>
-            <button className="bg-gold hover:bg-gold-light text-black font-medium px-8 py-3 rounded-md transition-all duration-300 transform hover:scale-105 tracking-wider">
+            <button onClick={scrollToContact} className="bg-gold hover:bg-gold-light text-black font-medium px-8 py-3 rounded-md transition-all duration-300 transform hover:scale-105 tracking-wider">
               APPLY NOW
             </button>
           </div>

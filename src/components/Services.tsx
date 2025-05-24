@@ -20,6 +20,8 @@ export const Services = () => {
     cards?.forEach(card => observer.observe(card));
     return () => observer.disconnect();
   }, []);
+
+
   const services = [{
     title: "PROPERTY OWNERSHIP ACADEMY",
     subtitle: "TAILORED EDUCATION",
@@ -57,6 +59,12 @@ export const Services = () => {
     badge: "ONGOING",
     size: "large"
   }];
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('resources');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+ 
   const getCardClassName = (size: string, index: number) => {
     const baseClasses = "group relative overflow-hidden transition-all duration-700 transform hover:scale-105";
     const visibilityClasses = visibleCards.includes(index) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8";
@@ -66,87 +74,87 @@ export const Services = () => {
     return `${baseClasses} ${visibilityClasses}`;
   };
   return <section ref={sectionRef} id="services" className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gold/10 to-transparent"></div>
-      </div>
+    {/* Background Pattern */}
+    <div className="absolute inset-0 opacity-5">
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-gold/10 to-transparent"></div>
+    </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Sparkles className="w-6 h-6 text-gold animate-pulse" />
-            <span className="text-gold text-sm tracking-widest font-light">PREMIUM SERVICES</span>
-            <Sparkles className="w-6 h-6 text-gold animate-pulse" />
-          </div>
-          
-          <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-wider">
-            OUR <span className="text-gold">EXPERTISE</span>
-          </h2>
-          
-          <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
-          
-          <p className="text-gray-300 text-xl max-w-4xl mx-auto font-light leading-relaxed">
-            Comprehensive real estate solutions crafted for discerning investors who demand excellence
-          </p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 mb-4">
+          <Sparkles className="w-6 h-6 text-gold animate-pulse" />
+          <span className="text-gold text-sm tracking-widest font-light">PREMIUM SERVICES</span>
+          <Sparkles className="w-6 h-6 text-gold animate-pulse" />
         </div>
 
-        {/* Masonry-style Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-auto">
-          {services.map((service, index) => <Card key={index} data-index={index} className={getCardClassName(service.size, index)} style={{
+        <h2 className="text-4xl md:text-6xl font-light text-white mb-6 tracking-wider">
+          OUR <span className="text-gold">EXPERTISE</span>
+        </h2>
+
+        <div className="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
+
+        <p className="text-gray-300 text-xl max-w-4xl mx-auto font-light leading-relaxed">
+          Comprehensive real estate solutions crafted for discerning investors who demand excellence
+        </p>
+      </div>
+
+      {/* Masonry-style Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 auto-rows-auto">
+        {services.map((service, index) => <Card key={index} data-index={index} className={getCardClassName(service.size, index)} style={{
           transitionDelay: `${index * 200}ms`
         }}>
-              <CardContent className="p-0 h-full bg-gray-950">
-                <div className="relative h-80 overflow-hidden">
-                  {/* Badge */}
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="bg-gold text-black px-3 py-1 text-xs font-medium tracking-wider rounded-full">
-                      {service.badge}
-                    </span>
-                  </div>
+          <CardContent className="p-0 h-full bg-gray-950">
+            <div className="relative h-80 overflow-hidden">
+              {/* Badge */}
+              <div className="absolute top-4 left-4 z-20">
+                <span className="bg-gold text-black px-3 py-1 text-xs font-medium tracking-wider rounded-full">
+                  {service.badge}
+                </span>
+              </div>
 
-                  {/* Image with Overlay */}
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
-                  
-                  {/* Icon */}
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-gold/30">
-                      <service.icon className="w-6 h-6 text-gold" />
-                    </div>
-                  </div>
+              {/* Image with Overlay */}
+              <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
 
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+
+              {/* Icon */}
+              <div className="absolute top-4 right-4 z-20">
+                <div className="w-12 h-12 bg-gold/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-gold/30">
+                  <service.icon className="w-6 h-6 text-gold" />
                 </div>
-                
-                <div className="p-8 bg-gradient-to-br from-gray-900 to-black border-t border-gold/20">
-                  <h3 className="text-xl font-light text-gold mb-2 tracking-wider">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-xs text-gray-400 tracking-widest mb-4 uppercase">
-                    {service.subtitle}
-                  </p>
-                  
-                  <p className="text-gray-300 mb-6 leading-relaxed font-light">
-                    {service.description}
-                  </p>
-                  
-                  <ul className="space-y-3 mb-6">
-                    {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start space-x-3 text-sm text-gray-300">
-                        <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="font-light">{feature}</span>
-                      </li>)}
-                  </ul>
+              </div>
 
-                  <Button variant="outline" className="w-full border-gold/30 text-gold hover:bg-gold hover:text-black transition-all duration-300 group-hover:border-gold">
-                    LEARN MORE
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>)}
-        </div>
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-gold/10 opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+            </div>
+
+            <div className="p-8 bg-gradient-to-br from-gray-900 to-black border-t border-gold/20">
+              <h3 className="text-xl font-light text-gold mb-2 tracking-wider">
+                {service.title}
+              </h3>
+
+              <p className="text-xs text-gray-400 tracking-widest mb-4 uppercase">
+                {service.subtitle}
+              </p>
+
+              <p className="text-gray-300 mb-6 leading-relaxed font-light">
+                {service.description}
+              </p>
+
+              <ul className="space-y-3 mb-6">
+                {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-start space-x-3 text-sm text-gray-300">
+                  <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="font-light">{feature}</span>
+                </li>)}
+              </ul>
+
+              <Button onClick={scrollToContact} variant="outline" className="w-full border-gold/30 text-gold hover:bg-gold hover:text-black transition-all duration-300 group-hover:border-gold">
+                LEARN MORE
+              </Button>
+            </div>
+          </CardContent>
+        </Card>)}
       </div>
-    </section>;
+    </div>
+  </section>;
 };

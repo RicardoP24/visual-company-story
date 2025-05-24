@@ -36,26 +36,6 @@ export const Testimonials = () => {
     text: "My family and I moved to Lisbon in August 2022 and Ishmael was a major part of our move. We actually 'found' him by mistake after a poor experience with another agency — and it turned out to be the best thing. Ishmael went above and beyond expectations: securing an apartment, guiding us through public services, applying for our NIFs, even picking us up at the airport. He did countless video calls while we were still in the US. His service was professional, personal, and ongoing even after we settled. We highly recommend him. Fantastic human being! Bonus: He speaks several languages — communication was effortless.",
     highlight: "Complete relocation support",
     videoTestimonial: true
-  }, {
-    id: 4,
-    name: "Sofia Martins",
-    role: "Property Investor",
-    location: "Lisbon, Portugal",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b332e234?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "Kings in Company transformed my investment strategy completely. Their insights into the Portuguese market helped me secure three properties that have already appreciated 25%. The Academy program was invaluable.",
-    highlight: "25% appreciation in 18 months",
-    videoTestimonial: true
-  }, {
-    id: 5,
-    name: "Marcus Thompson",
-    role: "First-time Buyer",
-    location: "Cabo Verde",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    rating: 5,
-    text: "From complete beginner to confident property owner in 6 months. The consultation process was thorough, and they guided me through every step. I now own a beautiful villa in Sal Island.",
-    highlight: "Dream villa acquired in 6 months",
-    videoTestimonial: false
   }];
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
